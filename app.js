@@ -501,13 +501,15 @@ async function uploadDocument(event) {
 
     if (uploadError) throw uploadError;
 
-    const { error: insertError } = await supabase
-      .from("documents")
-      .insert({
-        user_id: user.id,
-        name,
-        file_path: filePath
-      });
+   const { error: insertError } = await supabase
+  .from("documents")
+  .insert({
+    user_id: user.id,
+    name,
+    file_path: filePath,
+    file_type: file.type,
+    file_size: file.size
+  });
 
     if (insertError) {
       // Clean up the uploaded file if the database insert fails.
