@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d1b">
+
+  <title>My Locker | Parsh.online</title>
+
+  <style>
+    :root {
+      --bg: #090d1b;
+      --panel: #11182b;
+      --border: rgba(255,255,255,.10);
+      --text: #f7f8ff;
+      --muted: #a6b0ca;
+      --purple: #8565ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      min-height: 68px;
+      padding: 12px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(9,13,27,.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      color: white;
+      font-size: 21px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: #a78bfa;
+    }
+
+    .logout {
+      min-height: 42px;
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+      color: white;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 5% 60px;
+    }
+
+    .welcome {
+      margin-bottom: 25px;
+    }
+
+    .welcome h1 {
+      font-size: clamp(26px, 6vw, 36px);
+      letter-spacing: -.8px;
+    }
+
+    .welcome p {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .panel {
+      padding: 20px;
+      margin-bottom: 25px;
+      border: 1px solid var(--border);
+      border-radius: 19px;
+      background: var(--panel);
+    }
+
+    .panel h2 {
+      font-size: 19px;
+      margin-bottom: 6px;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .field input {
+      display: block;
+      width: 100%;
+      min-height: 48px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      outline: none;
+      background: #0b1122;
+      color: white;
+    }
+
+    .field input:focus {
+      border-color: var(--purple);
+    }
+
+    input[type="file"] {
+      min-height: 54px;
+      padding: 10px;
+      font-size: 12px;
+    }
+
+    input[type="file"]::file-selector-button {
+      padding: 7px 10px;
+      margin-right: 9px;
+      border: 0;
+      border-radius: 7px;
+      background: #282044;
+      color: white;
+      cursor: pointer;
+    }
+
+    .primary {
+      width: 100%;
+      min-height: 49px;
+      padding: 12px 16px;
+      border: 0;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #8565ff, #6544e8);
+      color: white;
+      font-weight: 750;
+    }
+
+    .primary:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 47px;
+      margin: 12px 0 18px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: #0b1122;
+      color: white;
+    }
+
+    .documents-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .documents-heading h2 {
+      font-size: 20px;
+    }
+
+    .count {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .document-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .empty {
+      padding: 27px 12px;
+      border: 1px dashed #37415d;
+      border-radius: 13px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .document-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #0d1427;
+    }
+
+    .file-symbol {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 43px;
+      height: 46px;
+      border-radius: 10px;
+      background: #252044;
+      color: #c4b5fd;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .file-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .file-info strong {
+      display: block;
+      overflow-wrap: anywhere;
+      font-size: 14px;
+    }
+
+    .file-info small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+      font-size: 11px;
+    }
+
+    .notice {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    @media (min-width: 650px) {
+      .page {
+        padding-top: 42px;
+      }
+
+      .panel {
+        padding: 26px;
+      }
+
+      .primary {
+        width: auto;
+        min-width: 200px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .topbar {
+        padding: 10px 4%;
+      }
+
+      .brand {
+        font-size: 19px;
+      }
+
+      .panel {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      Parsh<span>.online</span>
+    </a>
+
+    <button class="logout" id="logoutButton" type="button">
+      Log out
+    </button>
+  </header>
+
+  <main class="page">
+
+    <section class="welcome">
+      <h1>My Document Locker</h1>
+      <p>Your files, your names, your personal space.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Add a document</h2>
+      <p class="hint">
+        Give your file any name you like. No fixed categories.
+      </p>
+
+      <form id="uploadForm">
+
+        <div class="field">
+          <label for="documentName">Document name</label>
+          <input
+            id="documentName"
+            name="documentName"
+            type="text"
+            placeholder="e.g. My Laptop Warranty"
+            maxlength="100"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="documentFile">Choose a photo or PDF</label>
+          <input
+            id="documentFile"
+            name="documentFile"
+            type="file"
+            accept="image/jpeg,image/png,image/webp,application/pdf"
+            required
+          >
+        </div>
+
+        <button class="primary" id="uploadButton" type="submit">
+          + Save Document
+        </button>
+
+        <p class="notice" id="uploadMessage" role="status">
+          Supported formats: JPG, PNG, WebP and PDF.
+          Maximum file size will be enforced by the upload system.
+        </p>
+
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="documents-heading">
+        <h2>My Documents</h2>
+        <span class="count" id="documentCount">0 files</span>
+      </div>
+
+      <input
+        class="search"
+        id="searchDocuments"
+        type="search"
+        placeholder="Search your document names..."
+        aria-label="Search documents"
+      >
+
+      <div class="document-list" id="documentList">
+        <div class="empty">
+          Your saved documents will appear here after
+          the storage system is connected.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>

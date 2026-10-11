@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Parsh.online | Your Personal Document Locker</title>
+
+  <meta name="description"
+        content="Keep your bills, warranty cards, invoices and important files organized with Parsh.online.">
+
+  <meta name="theme-color" content="#090d1b">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo" aria-label="Parsh.online Home">
+      <span class="logo-icon">
+        <svg viewBox="0 0 24 24" width="25" height="25"
+             fill="none" stroke="currentColor"
+             stroke-width="2.5" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <path d="M13 2 4 14h7l-1 8 10-13h-7l1-7z"/>
+        </svg>
+      </span>
+      <span>Parsh<span class="logo-dot">.online</span></span>
+    </a>
+
+    <nav class="nav-actions" aria-label="Main navigation">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <button class="btn btn-outline" onclick="showLogin()">
+        Login
+      </button>
+      <button class="btn btn-primary" onclick="showSignup()">
+        Sign Up
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+
+      <div class="hero-content">
+        <div class="badge">
+          YOUR PERSONAL DOCUMENT SPACE
+        </div>
+
+        <h1>
+          Your documents.<br>
+          <span>Always within reach.</span>
+        </h1>
+
+        <p class="hero-description">
+          Keep your bills, warranty cards, invoices and important
+          files organized in one place. Access your collection
+          whenever you need it.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-large"
+                  onclick="showSignup()">
+            Get Started Free
+            <span aria-hidden="true">→</span>
+          </button>
+
+          <button class="btn btn-outline btn-large"
+                  onclick="showLogin()">
+            Login to Your Account
+          </button>
+        </div>
+
+        <div class="trust-note">
+          <span class="trust-dot"></span>
+          Designed for easy access on your phone
+        </div>
+      </div>
+
+      <div class="preview-card">
+        <div class="preview-header">
+          <div>
+            <p class="small-label">YOUR WORKSPACE</p>
+            <h2>My Documents</h2>
+          </div>
+
+          <span class="folder-icon" aria-hidden="true">▣</span>
+        </div>
+
+        <div class="document-item">
+          <span class="file-icon blue">PDF</span>
+          <div class="document-info">
+            <strong>Purchase Invoice</strong>
+            <small>Invoices</small>
+          </div>
+          <span class="file-arrow">↗</span>
+        </div>
+
+        <div class="document-item">
+          <span class="file-icon purple">DOC</span>
+          <div class="document-info">
+            <strong>Warranty Card</strong>
+            <small>Warranty</small>
+          </div>
+          <span class="file-arrow">↗</span>
+        </div>
+
+        <div class="document-item">
+          <span class="file-icon green">PDF</span>
+          <div class="document-info">
+            <strong>Electricity Bill</strong>
+            <small>Bills</small>
+          </div>
+          <span class="file-arrow">↗</span>
+        </div>
+
+        <div class="storage-note">
+          <span aria-hidden="true">✦</span>
+          <div>
+            <strong>Your files, neatly organized</strong>
+            <small>A simple space for everyday documents</small>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="features-section" id="features">
+      <div class="section-heading">
+        <p class="small-label">MADE FOR EVERYDAY LIFE</p>
+        <h2>Everything in one place.</h2>
+        <p>Manage your important files without the hassle.</p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <span class="feature-icon blue">↑</span>
+          <h3>Upload & Store</h3>
+          <p>Keep your bills, invoices and warranty cards together.</p>
+        </article>
+
+        <article class="feature">
+          <span class="feature-icon purple">◇</span>
+          <h3>Private Access</h3>
+          <p>Access controls help keep each user's files private.</p>
+        </article>
+
+        <article class="feature">
+          <span class="feature-icon green">▣</span>
+          <h3>Access Anywhere</h3>
+          <p>Open your document collection from your phone or computer.</p>
+        </article>
+
+        <article class="feature">
+          <span class="feature-icon orange">⌕</span>
+          <h3>Easy Organization</h3>
+          <p>Find documents more easily with useful categories.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div class="section-heading">
+        <p class="small-label">GET STARTED IN SIMPLE STEPS</p>
+        <h2>Your documents, made easier.</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span>01</span>
+          <h3>Create an account</h3>
+          <p>Register with your email and password.</p>
+        </div>
+
+        <div class="step">
+          <span>02</span>
+          <h3>Upload your files</h3>
+          <p>Add supported bills, receipts and documents.</p>
+        </div>
+
+        <div class="step">
+          <span>03</span>
+          <h3>Access when needed</h3>
+          <p>Sign in to view and manage your files.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to organize your documents?</h2>
+      <p>Create your personal space with Parsh.online.</p>
+      <button class="btn btn-primary btn-large"
+              onclick="showSignup()">
+        Create Your Account →
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="index.html" class="logo footer-logo">
+      Parsh<span class="logo-dot">.online</span>
+    </a>
+    <p>Your personal space for everyday documents.</p>
+    <p class="copyright">© 2026 Parsh.online</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
